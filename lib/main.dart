@@ -12,13 +12,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-     themeMode: ThemeMode.light,
+     themeMode: ThemeMode.light, // this widget change app mode
+      // light theme
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.blue,
         )
       ),
-
+// dark theme
       darkTheme: ThemeData(
         brightness: Brightness.dark,primarySwatch: Colors.purple,
         appBarTheme: AppBarTheme(
