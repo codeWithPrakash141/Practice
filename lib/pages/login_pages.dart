@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/routes/MyRoutes.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -8,47 +9,100 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String name = "";
+  bool changeButton = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      color: Colors.deepPurpleAccent,
-      child: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 70, horizontal: 30),
-            child: Image.asset(
-              "assets/images/login_image.jpg",
-            ),
-          ),
-         const SizedBox(
-            height: 30,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 25),
-            child: Column(
-              children: <Widget>[
-                TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: "Enter Your E-mail Id",
-                    labelText: "E-mail",
+      body: Container(
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Container(
+                width: 400,
+                height: 350,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/login.png'),
                   ),
                 ),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: "Enter Your Password",
-                    labelText: "Password",
-                  ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                "Welcome $name",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+                child: Column(
+                  children: <Widget>[
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: "Enter Your E-mail Id",
+                        labelText: "E-mail",
+                      ),
+                      onChanged: (value) {
+                        name = value;
+                        setState(() {});
+                      },
+                    ),
+                    TextFormField(
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        hintText: "Enter Your Password",
+                        labelText: "Password",
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    InkWell(
+                      onTap: () async {
+                        setState(() {
+                          changeButton = true;
+                        });
+                        await Future.delayed(Duration(seconds: 2));
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, MyRoutes.homeRoute, (route) => false);
+                      },
+                      child: AnimatedContainer(
+                        duration: Duration(seconds: 1),
+                        height: 50,
+                        width: changeButton ? 60 : 150,
+                        alignment: Alignment.center,
+                        child: changeButton
+                            ? Icon(
+                                Icons.done_outline_outlined,
+                                color: Colors.white,
+                              )
+                            : Text(
+                                "Login",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 19,
+                                    color: Colors.white),
+                              ),
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius:
+                              BorderRadius.circular(changeButton ? 50 : 8),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
-                const SizedBox(
-                  height: 40,
-                ),
-                ElevatedButton(onPressed: () {}, child: const Text("Login")),
-              ],
-            ),
-          )
-        ],
+              )
+            ],
+          ),
+        ),
       ),
-    ));
+      backgroundColor: Colors.white,
+    );
   }
 }
