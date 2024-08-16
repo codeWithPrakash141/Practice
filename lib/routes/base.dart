@@ -9,8 +9,10 @@ class BaseScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Practice"),
-        backgroundColor: Colors.blueAccent,
+        title: const Text("Catalog App"),
+      centerTitle: true,
+      //   backgroundColor: Colors.white,
+      //   elevation: 0.0,
       ),
       drawer: MyDrawer(),
       body: body,

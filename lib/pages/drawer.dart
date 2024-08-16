@@ -9,23 +9,25 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
+        color: Colors.black87,
         child: ListView(
+
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
                 padding: EdgeInsets.zero,
                 child: UserAccountsDrawerHeader(
-                  decoration: BoxDecoration(color: Colors.blueAccent),
+                  decoration: BoxDecoration(color: Colors.black12),
                   margin: EdgeInsets.zero,
                   accountName: Text(
                     "Prakash Mishra",
                     style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.bold),
+                        color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                   accountEmail: Text(
                     "prakashmishra5232@gmail.com",
                     style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.bold),
+                        color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                   currentAccountPicture: CircleAvatar(
                     backgroundImage: AssetImage("assets/images/bg.jpg"),
@@ -38,12 +40,12 @@ class MyDrawer extends StatelessWidget {
               },
               leading: const Icon(
                 CupertinoIcons.home,
-                color: Colors.black,
+                color: Colors.white,
               ),
               title: const Text(
                 "Home",
                 textScaleFactor: 1.2,
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.white),
               ),
             ),
             ListTile(
@@ -53,12 +55,12 @@ class MyDrawer extends StatelessWidget {
               },
               leading: const Icon(
                 CupertinoIcons.settings,
-                color: Colors.black,
+                color: Colors.white,
               ),
               title: const Text(
                 "Setting",
                 textScaleFactor: 1.2,
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.white),
               ),
             ),
             ListTile(
@@ -68,23 +70,23 @@ class MyDrawer extends StatelessWidget {
               },
               leading: const Icon(
                 CupertinoIcons.phone_arrow_down_left,
-                color: Colors.black,
+                color: Colors.white,
               ),
               title: const Text(
                 "Contact",
                 textScaleFactor: 1.2,
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.white),
               ),
             ),
             const ListTile(
               leading: Icon(
                 CupertinoIcons.arrow_right_square,
-                color: Colors.black,
+                color: Colors.white,
               ),
               title: Text(
                 "Log out",
                 textScaleFactor: 1.2,
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.white),
               ),
             )
           ],
